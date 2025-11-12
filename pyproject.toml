@@ -1,0 +1,10 @@
+[project]
+name = "fleet-commander"
+version = "0.1.0"
+description = "Fleet Commander"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+ "arcade==3.2.0",
+ "pypresence>=4.3.0",
+]
