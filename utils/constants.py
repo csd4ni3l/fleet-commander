@@ -3,6 +3,15 @@ from arcade.types import Color
 from arcade.gui.widgets.buttons import UITextureButtonStyle, UIFlatButtonStyle
 from arcade.gui.widgets.slider import UISliderStyle
 
+ENEMY_ROWS = 3
+ENEMY_COLS = 13
+
+PLAYER_SPEED = 5 # not actually player
+PLAYER_ATTACK_SPEED = 0.75
+
+BULLET_SPEED = 3
+BULLET_RADIUS = 10
+
 menu_background_color = (30, 30, 47)
 log_dir = 'logs'
 discord_presence_id = 1438214877343907881

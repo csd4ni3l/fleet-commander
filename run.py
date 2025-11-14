@@ -14,7 +14,6 @@ pyglet.font.add_directory(os.path.join(script_dir, 'assets', 'fonts'))
 from utils.utils import get_closest_resolution, print_debug_info, on_exception
 from utils.constants import log_dir, menu_background_color
 from menus.main import Main
-from utils.preload import theme_sound # needed for preload
 from arcade.experimental.controller_window import ControllerWindow
 
 sys.excepthook = on_exception
@@ -88,9 +87,6 @@ else:
 
     with open("settings.json", "w") as file:
         file.write(json.dumps(settings))
-
-if settings.get("music", True):
-    theme_sound.play(volume=settings.get("music_volume", 50) / 100, loop=True)
 
 try:
     window = ControllerWindow(width=resolution[0], height=resolution[1], title='Fleet Commander', samples=antialiasing, antialiasing=antialiasing > 0, fullscreen=fullscreen, vsync=vsync, resizable=False, style=style, visible=False)
