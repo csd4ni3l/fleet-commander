@@ -3,6 +3,8 @@ import arcade, arcade.gui, random, time
 from utils.constants import button_style, ENEMY_ROWS, ENEMY_COLS, PLAYER_ATTACK_SPEED
 from utils.preload import button_texture, button_hovered_texture
 
+from stable_baselines3 import PPO
+
 from game.sprites import Enemy, Player, Bullet
 
 class Game(arcade.gui.UIView):
@@ -16,18 +18,28 @@ class Game(arcade.gui.UIView):
         
         self.spritelist = arcade.SpriteList()
 
-        self.player = Player(100, 100)  # not actually player
+        self.player = Player(self.window.width / 2 + random.randint(int(-self.window.width / 3), int(self.window.width / 3)), 100)  # not actually player
         self.spritelist.append(self.player)
 
         self.last_player_shoot = time.perf_counter() # not actually player
         
+        self.model = PPO.load("invader_agent.zip")
+
         self.enemies: list[Enemy] = []
-        self.bullets: list[Bullet] = []
+        self.player_bullets: list[Bullet] = []
+        self.enemy_bullets: list[Bullet] = []
 
         self.summon_enemies()
 
     def on_show_view(self):
         super().on_show_view()
+
+        self.back_button = self.anchor.add(arcade.gui.UITextureButton(texture=button_texture, texture_hovered=button_hovered_texture, text='<--', style=button_style, width=100, height=50), anchor_x="left", anchor_y="top")
+        self.back_button.on_click = lambda event: self.main_exit()
+
+    def main_exit(self):
+        from menus.main import Main
+        self.window.show_view(Main(self.pypresence_client))
 
     def summon_enemies(self):
         enemy_start_x = self.window.width * 0.15
@@ -45,7 +57,7 @@ class Game(arcade.gui.UIView):
 
         bullets_to_remove = []
 
-        for bullet in self.bullets:
+        for bullet in self.player_bullets + self.enemy_bullets:
             bullet.update()
             
             bullet_hit = False
@@ -68,9 +80,22 @@ class Game(arcade.gui.UIView):
 
         for bullet_to_remove in bullets_to_remove:
             self.spritelist.remove(bullet_to_remove)
-            self.bullets.remove(bullet_to_remove)
 
-        self.player.update(self.enemies) # not actually player
+            if bullet_to_remove in self.enemy_bullets:
+                self.enemy_bullets.remove(bullet_to_remove)
+            elif bullet_to_remove in self.player_bullets:
+                self.player_bullets.remove(bullet_to_remove)
+
+        self.player.update(self.model, self.enemies, self.enemy_bullets, self.window.width, self.window.height) # not actually player
+
+        if self.player.center_x > self.window.width:
+            self.player.center_x = self.window.width
+        elif self.player.center_x < 0:
+            self.player.center_x = 0
+
+        if self.player.shoot:
+            self.player.shoot = False
+            self.shoot(self.player.center_x, self.player.center_y, 1)
 
         if time.perf_counter() - self.last_player_shoot >= PLAYER_ATTACK_SPEED:
             self.last_player_shoot = time.perf_counter()
@@ -79,7 +104,13 @@ class Game(arcade.gui.UIView):
     def shoot(self, x, y, direction_y):
         bullet = Bullet(x, y, direction_y)
         self.spritelist.append(bullet)
-        self.bullets.append(bullet)
+
+        if direction_y == 1:
+            bullets = self.player_bullets
+        else:
+            bullets = self.enemy_bullets
+
+        bullets.append(bullet)
 
     def on_key_press(self, symbol, modifiers):
         if symbol == arcade.key.SPACE:

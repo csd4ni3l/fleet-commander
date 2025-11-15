@@ -12,6 +12,16 @@ PLAYER_ATTACK_SPEED = 0.75
 BULLET_SPEED = 3
 BULLET_RADIUS = 10
 
+MODEL_SETTINGS = {
+    "n_steps": [2048, 256, 8192, 256],
+    "batch_size": 64, 
+    "n_epochs": 10, 
+    "learning_rate": 3e-4,
+    "gamma": 0.99,
+    "ent_coef": 0.01, 
+    "clip_range": 0.2
+}
+
 menu_background_color = (30, 30, 47)
 log_dir = 'logs'
 discord_presence_id = 1438214877343907881
