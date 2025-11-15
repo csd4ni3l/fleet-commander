@@ -33,7 +33,7 @@ class Player(arcade.Sprite): # Not actually the player
 
     def update(self, model: PPO, enemies, bullets, width, height):
         if enemies:
-            nearest_enemy = min(enemies, key=lambda e: abs(e.center_y - self.center_y) + abs(e.center_x - self.center_x))
+            nearest_enemy = min(enemies, key=lambda e: abs(e.center_x - self.center_x))
             enemy_x = (nearest_enemy.center_x - self.center_x) / width
             enemy_y = (nearest_enemy.center_y - self.center_y) / height
         else:

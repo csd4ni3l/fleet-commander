@@ -12,18 +12,21 @@ PLAYER_ATTACK_SPEED = 0.75
 BULLET_SPEED = 3
 BULLET_RADIUS = 10
 
+# default, min, max, step
 MODEL_SETTINGS = {
     "n_steps": [2048, 256, 8192, 256],
-    "batch_size": 64, 
-    "n_epochs": 10, 
-    "learning_rate": 3e-4,
-    "gamma": 0.99,
-    "ent_coef": 0.01, 
-    "clip_range": 0.2
+    "batch_size": [64, 16, 512, 16],
+    "n_epochs": [10, 1, 50, 1],
+    "learning_rate": [3e-4, 1e-5, 1e-2, 1e-5],
+    "gamma": [0.99, 0.8, 0.9999, 0.001],
+    "ent_coef": [0.01, 0.0, 0.1, 0.001],
+    "clip_range": [0.2, 0.1, 0.4, 0.01],
+    "learning_steps": [500_000, 50_000, 25_000_000, 50_000]
 }
 
 menu_background_color = (30, 30, 47)
 log_dir = 'logs'
+monitor_log_dir = "training_logs"
 discord_presence_id = 1438214877343907881
 
 button_style = {'normal': UITextureButtonStyle(font_name="Roboto", font_color=arcade.color.BLACK), 'hover': UITextureButtonStyle(font_name="Roboto", font_color=arcade.color.BLACK),

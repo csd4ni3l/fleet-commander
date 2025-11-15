@@ -10,15 +10,12 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 pyglet.resource.path.append(script_dir)
 pyglet.font.add_directory(os.path.join(script_dir, 'assets', 'fonts'))
 
-
 from utils.utils import get_closest_resolution, print_debug_info, on_exception
 from utils.constants import log_dir, menu_background_color
 from menus.main import Main
 from arcade.experimental.controller_window import ControllerWindow
 
 sys.excepthook = on_exception
-
-__builtins__.print = lambda *args, **kwargs: logging.debug(" ".join(map(str, args)))
 
 if not log_dir in os.listdir():
     os.makedirs(log_dir)

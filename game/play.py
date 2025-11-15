@@ -34,7 +34,7 @@ class Game(arcade.gui.UIView):
     def on_show_view(self):
         super().on_show_view()
 
-        self.back_button = self.anchor.add(arcade.gui.UITextureButton(texture=button_texture, texture_hovered=button_hovered_texture, text='<--', style=button_style, width=100, height=50), anchor_x="left", anchor_y="top")
+        self.back_button = self.anchor.add(arcade.gui.UITextureButton(texture=button_texture, texture_hovered=button_hovered_texture, text='<--', style=button_style, width=100, height=50), anchor_x="left", anchor_y="top", align_x=5, align_y=-5)
         self.back_button.on_click = lambda event: self.main_exit()
 
     def main_exit(self):
