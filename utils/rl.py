@@ -172,13 +172,13 @@ class SpaceInvadersEnv(gym.Env):
                     b = Bullet(self.player.center_x, self.player.center_y, 1)
                     self.bullets.append(b)
                 else:
-                    reward -= 0.05
+                    reward -= 0.02
 
             if self.enemy_formation.enemies:
                 nearest = self._nearest_enemy()
                 alignment = abs(nearest.center_x - self.player.center_x) / self.width
                 if alignment < 0.025:
-                    reward += 0.3
+                    reward += 0.1
 
             self.player.center_x = np.clip(self.player.center_x, 0, self.width)
             self.player_speed = (self.player.center_x - prev_x) / max(1e-6, PLAYER_SPEED)
@@ -222,7 +222,6 @@ class SpaceInvadersEnv(gym.Env):
                     if self.player_respawns_remaining > 0:
                         self.player_respawns_remaining -= 1
                         self._respawn_player()
-                        reward += 2.0 
                     else:
                         terminated = True
 
@@ -265,7 +264,7 @@ class SpaceInvadersEnv(gym.Env):
             if self.player.center_x < edge_threshold or self.player.center_x > self.width - edge_threshold:
                 reward -= 0.03
 
-        reward -= 0.005
+        reward -= 0.0025
 
         obs = self._obs()
         

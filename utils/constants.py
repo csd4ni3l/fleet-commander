@@ -35,29 +35,29 @@ DIFFICULTY_SETTINGS = {
 
 DIFFICULTY_LEVELS = {
     "Easy": {
-        "enemy_rows": 3,
-        "enemy_cols": 4,
+        "enemy_rows": 2,
+        "enemy_cols": 3,
         "enemy_respawns": 5,
         "player_count": 2,
         "player_respawns": 2
     },
     "Medium": {
         "enemy_rows": 3,
-        "enemy_cols": 5,
+        "enemy_cols": 4,
         "enemy_respawns": 4,
         "player_count": 4,
         "player_respawns": 3
     },
     "Hard": {
         "enemy_rows": 4,
-        "enemy_cols": 6,
+        "enemy_cols": 5,
         "enemy_respawns": 3,
         "player_count": 6,
         "player_respawns": 4
     },
     "Extra Hard": {
-        "enemy_rows": 6,
-        "enemy_cols": 7,
+        "enemy_rows": 5,
+        "enemy_cols": 6,
         "enemy_respawns": 2,
         "player_count": 8,
         "player_respawns": 5
