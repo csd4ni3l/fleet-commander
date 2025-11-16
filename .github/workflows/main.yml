@@ -32,6 +32,12 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
+      - name: Install CPU only torch
+        run: pip3 install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Install stable_baselines3 after torch
+        run: pip3 install stable_baselines3
+        
       - name: Build Executable
         uses: Nuitka/Nuitka-Action@main
         with:

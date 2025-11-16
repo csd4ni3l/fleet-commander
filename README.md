@@ -1,12 +1,14 @@
 Fleet Commander is like Space Invaders but you are the enemy instead of the player.
 
-It uses AI (Reinforcement Learning) for the Player, and you, the Enemy has to defeat it.
+It uses AI (Reinforcement Learning) for the Player(s), and You, the Enemy has to defeat it.
 
-I know the game is too easy and is too simple, but please understand that doing RL isnt the easiest thing ever. I also did this so late so yeah.
+I know the game is too easy and is too simple, but please understand that doing RL isn't the easiest thing ever. I also did this very late.
 
-You can train yourself, or use the default model(10 million timesteps) which comes with the game.
+You can train it yourself, or use the default model(10 million timesteps) which comes with the game.
 
 # Install steps:
+
+**It's important to install torch before stable_baselines3, otherwise it will use the GPU version, which i never tested with, and probably wouldn't be much faster because i depend on CPU for the simulation**
 
 ## For uv
 - `uv sync`
