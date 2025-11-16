@@ -3,25 +3,68 @@ from arcade.types import Color
 from arcade.gui.widgets.buttons import UITextureButtonStyle, UIFlatButtonStyle
 from arcade.gui.widgets.slider import UISliderStyle
 
-ENEMY_ROWS = 3
-ENEMY_COLS = 13
+ENEMY_SPEED = 5
+ENEMY_ATTACK_SPEED = 0.75
 
 PLAYER_SPEED = 5 # not actually player
 PLAYER_ATTACK_SPEED = 0.75
 
-BULLET_SPEED = 3
-BULLET_RADIUS = 10
+BULLET_SPEED = 5
+BULLET_RADIUS = 15
 
 # default, min, max, step
 MODEL_SETTINGS = {
-    "n_steps": [2048, 256, 8192, 256],
-    "batch_size": [64, 16, 512, 16],
+    "n_steps": [1024, 256, 8192, 256],
+    "batch_size": [128, 16, 512, 16],
     "n_epochs": [10, 1, 50, 1],
     "learning_rate": [3e-4, 1e-5, 1e-2, 1e-5],
     "gamma": [0.99, 0.8, 0.9999, 0.001],
-    "ent_coef": [0.01, 0.0, 0.1, 0.001],
+    "ent_coef": [0.015, 0.0, 0.1, 0.001],
     "clip_range": [0.2, 0.1, 0.4, 0.01],
-    "learning_steps": [500_000, 50_000, 25_000_000, 50_000]
+    "learning_steps": [1_000_000, 50_000, 25_000_000, 50_000],
+    "n_envs": (12, 1, 128, 1)
+}
+
+DIFFICULTY_SETTINGS = {
+    "enemy_rows": ["Enemy Rows", 1, 6],
+    "enemy_cols": ["Enemy Columns", 1, 7],
+    "enemy_respawns": ["Enemy Respawns", 1, 5],
+    "player_count": ["Player Count", 1, 10],
+    "player_respawns": ["Player Respawns", 1, 5]
+}
+
+DIFFICULTY_LEVELS = {
+    "Easy": {
+        "enemy_rows": 3,
+        "enemy_cols": 4,
+        "enemy_respawns": 5,
+        "player_count": 2,
+        "player_respawns": 2
+    },
+    "Medium": {
+        "enemy_rows": 3,
+        "enemy_cols": 5,
+        "enemy_respawns": 4,
+        "player_count": 4,
+        "player_respawns": 3
+    },
+    "Hard": {
+        "enemy_rows": 4,
+        "enemy_cols": 6,
+        "enemy_respawns": 3,
+        "player_count": 6,
+        "player_respawns": 4
+    },
+    "Extra Hard": {
+        "enemy_rows": 6,
+        "enemy_cols": 7,
+        "enemy_respawns": 2,
+        "player_count": 8,
+        "player_respawns": 5
+    },
+    "Custom": {
+
+    }
 }
 
 menu_background_color = (30, 30, 47)
