@@ -7,5 +7,5 @@ _assets_dir = os.path.join(os.path.dirname(_module_dir), 'assets')
 button_texture = arcade.gui.NinePatchTexture(64 // 4, 64 // 4, 64 // 4, 64 // 4, arcade.load_texture(os.path.join(_assets_dir, 'graphics', 'button.png')))
 button_hovered_texture = arcade.gui.NinePatchTexture(64 // 4, 64 // 4, 64 // 4, 64 // 4, arcade.load_texture(os.path.join(_assets_dir, 'graphics', 'button_hovered.png')))
 
-enemy_texture = arcade.load_texture("assets/graphics/enemy.png")
-player_texture = arcade.load_texture("assets/graphics/player.png")
+enemy_texture = arcade.load_texture(os.path.join(_assets_dir, 'graphics', 'enemy.png'))
+player_texture = arcade.load_texture(os.path.join(_assets_dir, 'graphics', 'player.png'))

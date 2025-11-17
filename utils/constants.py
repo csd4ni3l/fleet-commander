@@ -93,12 +93,6 @@ settings = {
         "VSync": {"type": "bool", "config_key": "vsync", "default": True},
         "FPS Limit": {"type": "slider", "min": 0, "max": 480, "config_key": "fps_limit", "default": 60},
     },
-    "Sound": {
-        "Music": {"type": "bool", "config_key": "music", "default": True},
-        "SFX": {"type": "bool", "config_key": "sfx", "default": True},
-        "Music Volume": {"type": "slider", "min": 0, "max": 100, "config_key": "music_volume", "default": 50},
-        "SFX Volume": {"type": "slider", "min": 0, "max": 100, "config_key": "sfx_volume", "default": 50},
-    },
     "Miscellaneous": {
         "Discord RPC": {"type": "bool", "config_key": "discord_rpc", "default": True},
     },
