@@ -6,6 +6,8 @@ I know the game is too easy and is too simple, but please understand that doing 
 
 You can train it yourself, or use the default model(125 million timesteps, took 7 hours) which comes with the game.
 
+[![Demo Video](https://img.youtube.com/vi/AtjB0Vr-E7U/hqdefault.jpg)](https://youtu.be/AtjB0Vr-E7U)
+
 # Install steps:
 
 **It's important to install torch before stable_baselines3, otherwise it will use the GPU version, which i never tested with, and probably wouldn't be much faster because i depend on CPU for the simulation**
