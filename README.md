@@ -26,3 +26,9 @@ You can train it yourself, or use the default model(125 million timesteps, took 
 
 # Disclaimer
 AI assistance was used in this project, since i never did any RL work before. But every instance of AI code was heavily modified by me.
+
+## Mirrors
+
+[![Forgejo](https://img.shields.io/badge/Forgejo-git.csd4ni3l.hu-1e90ff)](https://git.csd4ni3l.hu/csd4ni3l/fleet-commander)
+[![GitHub](https://img.shields.io/badge/GitHub-github.com-181717)](https://github.com/csd4ni3l/fleet-commander)
+[![Codeberg](https://img.shields.io/badge/Codeberg-codeberg.org-2185D0)](https://codeberg.org/csd4ni3l/fleet-commander)
