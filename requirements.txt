@@ -16,7 +16,7 @@ numpy==2.4.6
     # via
     #   fleet-commander (pyproject.toml)
     #   gymnasium
-pillow==11.3.0
+pillow==13.0.0
     # via arcade
 pycparser==3.12
     # via cffi
