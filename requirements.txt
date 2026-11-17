@@ -2,33 +2,33 @@
 #    uv pip compile pyproject.toml -o requirements.txt
 arcade==3.3.3
     # via fleet-commander (pyproject.toml)
-attrs==25.3.0
+attrs==26.1.0
     # via pytiled-parser
-cffi==1.17.1
+cffi==2.1.1
     # via pymunk
 cloudpickle==3.1.2
     # via gymnasium
-farama-notifications==0.0.4
+farama-notifications==0.0.6
     # via gymnasium
-gymnasium==1.2.2
+gymnasium==1.4.0
     # via fleet-commander (pyproject.toml)
-numpy==2.3.4
+numpy==2.4.6
     # via
     #   fleet-commander (pyproject.toml)
     #   gymnasium
 pillow==11.3.0
     # via arcade
-pycparser==2.22
+pycparser==3.12
     # via cffi
-pyglet==2.1.6
+pyglet==2.1.19
     # via arcade
 pymunk==6.9.0
     # via arcade
-pypresence==4.3.0
+pypresence==4.6.2
     # via fleet-commander (pyproject.toml)
 pytiled-parser==2.2.9
     # via arcade
-typing-extensions==4.14.1
+typing-extensions==4.16.0
     # via
     #   gymnasium
     #   pytiled-parser
